@@ -25,6 +25,7 @@ import com.example.android.android_me.data.AndroidImageAssets;
 
 // This activity will display a custom Android image composed of three body parts: head, body, and legs
 public class AndroidMeActivity extends AppCompatActivity {
+    private int headIndex, bodyIndex, legsIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,24 +34,50 @@ public class AndroidMeActivity extends AppCompatActivity {
 
         if (savedInstanceState == null){
 
+            Bundle b = getIntent().getExtras();
+
+            if(b != null){
+                headIndex = b.getInt("headIndex");
+                bodyIndex = b.getInt("bodyIndex");
+                legsIndex = b.getInt("legsIndex");
+            }
+
             FragmentManager fragmentManager = getSupportFragmentManager();
 
+            //***************** HEAD FRAGMENT *****************//
             BodyPartFragment headPartFragment = new BodyPartFragment();
             headPartFragment.setImageIds(AndroidImageAssets.getHeads());
+
+            if(headIndex > -1){
+                headPartFragment.setListIndex(headIndex);
+            }
+
             fragmentManager.beginTransaction()
                     .add(R.id.head_container, headPartFragment)
                     .commit();
 
+            //**************** BODY FRAGMENT *****************//
             BodyPartFragment bodyPartFragment = new BodyPartFragment();
             bodyPartFragment.setImageIds(AndroidImageAssets.getBodies());
+
+            if(bodyIndex > -1){
+                bodyPartFragment.setListIndex(bodyIndex);
+            }
+
             fragmentManager.beginTransaction()
                     .add(R.id.body_container, bodyPartFragment)
                     .commit();
 
-            BodyPartFragment legPartFragment = new BodyPartFragment();
-            legPartFragment.setImageIds(AndroidImageAssets.getLegs());
+            //***************** LEGS FRAGMENT *****************//
+            BodyPartFragment legsPartFragment = new BodyPartFragment();
+            legsPartFragment.setImageIds(AndroidImageAssets.getLegs());
+
+            if(legsIndex > -1){
+                legsPartFragment.setListIndex(legsIndex);
+            }
+
             fragmentManager.beginTransaction()
-                    .add(R.id.leg_container, legPartFragment)
+                    .add(R.id.leg_container, legsPartFragment)
                     .commit();
         }
     }
