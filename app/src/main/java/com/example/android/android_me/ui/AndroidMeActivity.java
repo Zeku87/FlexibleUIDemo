@@ -77,7 +77,7 @@ public class AndroidMeActivity extends AppCompatActivity {
             }
 
             fragmentManager.beginTransaction()
-                    .add(R.id.leg_container, legsPartFragment)
+                    .add(R.id.legs_container, legsPartFragment)
                     .commit();
         }
     }

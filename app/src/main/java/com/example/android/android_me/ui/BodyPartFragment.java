@@ -27,10 +27,12 @@ public class BodyPartFragment extends Fragment {
 
         final ImageView imageViewBodyPart = rootView.findViewById(R.id.image_view_body_part);
 
+        //Make sure that our image references list instance isn't null
         if(imageIds != null){
             imageViewBodyPart.setImageResource(imageIds.get(this.listIndex));
         }
 
+        //We're showing the next body part after clicking on it
         imageViewBodyPart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
