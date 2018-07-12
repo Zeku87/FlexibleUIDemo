@@ -80,5 +80,9 @@ public class AndroidMeActivity extends AppCompatActivity {
                     .add(R.id.legs_container, legsPartFragment)
                     .commit();
         }
+        else{
+            BodyPartFragment bodyPartFragment = new BodyPartFragment();
+
+        }
     }
 }

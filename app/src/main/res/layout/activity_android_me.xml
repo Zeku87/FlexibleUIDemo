@@ -10,18 +10,14 @@
  See the License for the specific language governing permissions and
  limitations under the License.-->
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.android.android_me.ui.AndroidMeActivity">
 
     <!-- The three body part images -->
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/android_me_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@android:color/white"
         android:orientation="vertical"
         android:weightSum="3"
@@ -52,5 +48,3 @@
             android:scaleType="centerInside"/>
 
     </LinearLayout>
-
-</ScrollView>
